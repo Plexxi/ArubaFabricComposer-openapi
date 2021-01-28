@@ -1,0 +1,29 @@
+/* Turns off the display of the following in the page header:
+- the top bar (not needed given the API schema URL should not be changed)
+- the URL components of API calls (redundant to auto-generated API calls within the doc itself) */
+.topbar, .url, .base-url{
+    display: none;
+}
+
+/* begin rendering with both styles of API login description disabled.
+it's the job of user token detection to turn on the appropriate element by ID. */
+#api_login_auto, #api_login_manual {
+    display: none;
+}
+
+.noformat {
+    background: #ebebeb;
+    padding: 3px 2px 3px 2px;
+    font-family: monospace;
+}
+
+#cfm_topbar {
+    font-size: 36px;
+    margin: 0;
+    font-family: Open Sans,sans-serif;
+    color: #5f7a76;
+}
+
+#cfm_topbar img {
+    margin-left: 10px;
+}

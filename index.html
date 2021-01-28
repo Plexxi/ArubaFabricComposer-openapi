@@ -3,10 +3,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Swagger UI</title>
+    <title>Aruba Fabric Composer API Documentation</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="dist/swagger-ui.css" >
-    <link rel="icon" type="image/png" href="dist/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="dist/favicon-16x16.png" sizes="16x16" />
+    <link rel="stylesheet" type="text/css" href="./cfm.css" >
+    <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
     <style>
       html
       {
@@ -31,15 +33,22 @@
   </head>
 
   <body>
+    <div id="cfm_topbar">
+      <img src="favicon-32x32.png" />
+      Aruba Fabric Composer API v1 Explorer
+    </div>
+
     <div id="swagger-ui"></div>
 
     <script src="dist/swagger-ui-bundle.js"> </script>
     <script src="dist/swagger-ui-standalone-preset.js"> </script>
     <script>
     window.onload = function() {
+
       // Begin Swagger UI call region
       const ui = SwaggerUIBundle({
-        url: "swagger.json",
+        url: "openapi.json",
+        validatorUrl: null,
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [
@@ -49,7 +58,11 @@
         plugins: [
           SwaggerUIBundle.plugins.DownloadUrl
         ],
-        layout: "StandaloneLayout"
+        layout: "StandaloneLayout",
+        operationsSorter: "method",
+        docExpansion: "none",
+        filter: true
+
       })
       // End Swagger UI call region
 
